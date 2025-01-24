@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codebuff Minecraft</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="instructions">
+      Controls:<br />
+      WASD - Move around<br />
+      Space/Shift - Move up/down<br />
+      Middle Mouse + Drag - Rotate view<br />
+      Left Click - Place block<br />
+      Right Click - Remove block<br />
+      1-5 Keys - Change block type
+    </div>
+    <canvas id="game"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <audio
+      id="placeSound"
+      src="https://freesound.org/data/previews/277/277021_5356256-lq.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="breakSound"
+      src="https://freesound.org/data/previews/444/444641_9159316-lq.mp3"
+      preload="auto"
+    ></audio>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
