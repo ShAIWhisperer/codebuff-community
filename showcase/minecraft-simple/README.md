@@ -2,15 +2,17 @@
 
 A simple 3D Minecraft-style game built with Three.js.
 
-## Getting Started
+## Get this project
 
-1. Install dependencies:
+Run the following to clone this starter template:
 
 ```bash
-npm install
+codebuff --create minecraft-simple
 ```
 
-2. Start the development server:
+## Development
+
+Start the development server:
 
 ```bash
 npm start

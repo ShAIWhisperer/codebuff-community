@@ -10,6 +10,8 @@ Run the following to clone this starter template:
 codebuff --create convex my-app
 ```
 
+## Development
+
 While developing:
 
 ```bash
