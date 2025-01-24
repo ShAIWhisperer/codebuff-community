@@ -7,7 +7,7 @@ This example demonstrates the [Convex](https://convex.dev) backend platform.
 Run the following to clone this starter template:
 
 ```bash
-codebuff --create nextjs my-app
+codebuff --create convex my-app
 ```
 
 While developing:
