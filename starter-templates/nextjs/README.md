@@ -1,8 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [Codebuff](https://codebuff.com)!
 
+## Get this project
+
+Run the following to clone this starter template:
+
+```bash
+codebuff --create nextjs my-app
+```
+
 ## Getting Started
 
-First, run the development server:
+To get set up, run the development server:
 
 ```bash
 npm run dev
