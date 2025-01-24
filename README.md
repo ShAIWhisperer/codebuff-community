@@ -12,7 +12,7 @@ npm install -g codebuff
 
 ## Starting a Project
 
-Use codebuff to create a new project from a template:
+Use codebuff to create a new project from a template. Templates are the names of subdirectories in `/starter-templates` or `/showcase`:
 ```bash
 codebuff --create nextjs my-project
 ```
