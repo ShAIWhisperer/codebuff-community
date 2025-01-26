@@ -6,7 +6,8 @@
     "dev:backend": "convex dev",
     "dev:frontend": "next dev",
     "predev": "convex dev --until-success",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "convex": "^1.12.0",
