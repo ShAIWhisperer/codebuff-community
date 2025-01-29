@@ -24,14 +24,23 @@ def analyze_commit_frequency_by_weekday(repo_path: str) -> Dict[str, int]:
     Analyze commit frequency by weekday (e.g., Monday, Tuesday).
     """
     repo = Repo(repo_path)
-    frequency: Dict[str, int] = defaultdict(int)
+    # Initialize all weekdays with zero count
+    frequency = {
+        "Monday": 0,
+        "Tuesday": 0,
+        "Wednesday": 0,
+        "Thursday": 0,
+        "Friday": 0,
+        "Saturday": 0,
+        "Sunday": 0,
+    }
 
     for commit in repo.iter_commits():
         date = datetime.fromtimestamp(commit.committed_date, timezone.utc)
         weekday = date.strftime("%A")  # e.g., "Monday"
         frequency[weekday] += 1
 
-    return dict(frequency)
+    return frequency
 
 
 def analyze_commit_frequency_by_hour(repo_path: str) -> Dict[str, int]:
@@ -39,14 +48,15 @@ def analyze_commit_frequency_by_hour(repo_path: str) -> Dict[str, int]:
     Analyze commit frequency by hour of day (0-23).
     """
     repo = Repo(repo_path)
-    frequency: Dict[str, int] = defaultdict(int)
+    # Initialize all hours with zero count
+    frequency = {f"{hour:02d}": 0 for hour in range(24)}
 
     for commit in repo.iter_commits():
         date = datetime.fromtimestamp(commit.committed_date, timezone.utc)
         hour = date.strftime("%H")  # e.g., "13" for 1pm
         frequency[hour] += 1
 
-    return dict(frequency)
+    return frequency
 
 
 def analyze_average_commit_size(repo_path: str) -> Dict[str, float]:
@@ -66,14 +76,19 @@ def analyze_average_commit_size(repo_path: str) -> Dict[str, float]:
         diffs = commit.diff(commit.parents[0], create_patch=True)
         changes_in_commit = 0
         for diff in diffs:
-            # diff.diff is a bytes object containing patch data
+            if not diff.diff:
+                continue
+            # diff.diff can be either string or bytes
             # A rough approach is to count the number of lines that start with "+" or "-"
             # ignoring lines that start with "+++" or "---" in the patch header
-            patch_lines = diff.diff.decode("utf-8", errors="ignore").split("\n")
+            if isinstance(diff.diff, bytes):
+                patch_lines = diff.diff.decode("utf-8", errors="ignore").split("\n")
+            else:
+                patch_lines = diff.diff.split("\n")
             for line in patch_lines:
-                if line.startswith('+') and not line.startswith('+++'):
+                if line.startswith("+") and not line.startswith("+++"):
                     changes_in_commit += 1
-                elif line.startswith('-') and not line.startswith('---'):
+                elif line.startswith("-") and not line.startswith("---"):
                     changes_in_commit += 1
 
         total_changes += changes_in_commit
@@ -102,7 +117,8 @@ def analyze_file_change_frequency(repo_path: str) -> Dict[str, int]:
         for diff in diffs:
             # a_path and b_path might be different if the file was renamed
             file_path = diff.a_path or diff.b_path
-            file_frequency[file_path] += 1
+            if file_path:  # Only count if we have a valid path
+                file_frequency[file_path] += 1
 
     return dict(file_frequency)
 
@@ -141,6 +157,11 @@ def main() -> None:
         "repo_path",
         help="Path to the git repository to analyze",
     )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Output results in JSON format",
+    )
 
     args = parser.parse_args()
 
@@ -152,9 +173,14 @@ def main() -> None:
         results = command_func(args.repo_path)
 
         # Print results
-        print(f"\n{args.command} results:")
-        for key, value in sorted(results.items()):
-            print(f"{key}: {value}")
+        if args.json:
+            import json
+
+            print(json.dumps(results, indent=2))
+        else:
+            print(f"\n{args.command} results:")
+            for key, value in sorted(results.items()):
+                print(f"{key}: {value}")
 
     except Exception as e:
         print(f"Error analyzing repository: {e}")
