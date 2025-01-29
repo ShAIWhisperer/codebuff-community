@@ -1,0 +1,30 @@
+[project]
+name = "cli"
+version = "0.1.0"
+description = "A Python CLI application for analyzing GitHub repository complexity"
+requires-python = ">=3.8"
+dependencies = [
+    "gitpython>=3.1.42",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.8.0",
+    "black>=24.1.1",
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
