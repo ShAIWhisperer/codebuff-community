@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Repository Analyzer",
+  "version": "1.0",
+  "description": "Analyzes GitHub repositories for complexity and development patterns",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
