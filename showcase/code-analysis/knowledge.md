@@ -33,6 +33,12 @@ Git analysis requires a backend service because:
 - Git operations require system-level access
 - Cannot run Python directly in extension
 
+### Chrome Extension Architecture
+- Use background script for persistent state between content script and popup
+- Content script injects into GitHub pages to extract repo info
+- Popup must handle case where content script isn't ready
+- Always use DOMContentLoaded in popup script
+
 ### Alternative Approaches Investigated
 Client-side options have limitations:
 - Pyodide (WASM Python): No filesystem/git access

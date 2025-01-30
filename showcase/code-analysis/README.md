@@ -1,9 +1,27 @@
-# Code Analysis CLI
+# GitHub Repository Analyzer
 
-A Python CLI application for analyzing GitHub repository complexity.
+A Chrome extension that analyzes GitHub repositories for development patterns and metrics.
 
-## Setup
+## Features
+- Commit frequency analysis
+- Contributor activity tracking
+- Commit patterns by weekday
+- Average commit size metrics
 
+## Prerequisites
+- Python 3.8 or higher
+- Google Chrome browser
+- Git
+
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone <your-repo-url>
+cd code-analysis
+```
+
+### 2. Set Up Python Environment
 ```bash
 # Create and activate virtual environment
 python -m venv .venv
@@ -16,35 +34,60 @@ pip install -e .
 pip install -e ".[dev]"
 ```
 
-## Usage
-
+### 3. Start the Backend Server
 ```bash
-# List available commands
-python -m cli --help
-
-# Analyze commit frequency for a repository
-python -m cli analyze_commit_frequency /path/to/git/repo
-
-# Output results in JSON format
-python -m cli analyze_commit_frequency /path/to/git/repo --json
+# Start the FastAPI server
+./start_server.sh
 ```
+The server will run at http://localhost:8000
 
-## Features
+### 4. Install Chrome Extension
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable "Developer mode" in the top right
+3. Click "Load unpacked"
+4. Select the `extension` directory from this project
 
-- analyze_commit_frequency: Analyze commit frequency by day
-- More features coming soon!
+### 5. Using the Extension
+1. Navigate to any GitHub repository
+2. Click the extension icon in Chrome's toolbar
+3. Click "Analyze Repository" to see metrics
 
 ## Development
 
+### Running Type Checks
 ```bash
-# Run type checker
 mypy cli app
-
-# Format code
-black cli app
-
-# Run FastAPI server
-uvicorn app.main:app --reload
 ```
 
-The FastAPI app will be available at http://localhost:8000 with automatic API documentation at http://localhost:8000/docs.
+### Format Code
+```bash
+black cli app
+```
+
+### API Documentation
+When the server is running, visit:
+- http://localhost:8000/docs for interactive API documentation
+- http://localhost:8000/redoc for alternative documentation view
+
+## Troubleshooting
+
+### Common Issues
+1. If the extension shows "No repository detected":
+   - Refresh the GitHub page
+   - Make sure you're on a repository page
+
+2. If analysis fails:
+   - Check that the backend server is running
+   - Look for errors in the server logs
+
+3. If the extension doesn't load:
+   - Check Chrome's extension page for errors
+   - Try reloading the extension
+
+### Server Logs
+The FastAPI server logs all operations. Check the terminal where you ran `start_server.sh` for detailed error messages.
+
+## Architecture
+- `cli/`: Command-line interface for git analysis
+- `app/`: FastAPI web service
+- `extension/`: Chrome extension files
