@@ -24,6 +24,9 @@ python -m cli --help
 
 # Analyze commit frequency for a repository
 python -m cli analyze_commit_frequency /path/to/git/repo
+
+# Output results in JSON format
+python -m cli analyze_commit_frequency /path/to/git/repo --json
 ```
 
 ## Features
@@ -35,8 +38,13 @@ python -m cli analyze_commit_frequency /path/to/git/repo
 
 ```bash
 # Run type checker
-mypy cli
+mypy cli app
 
 # Format code
-black cli
+black cli app
+
+# Run FastAPI server
+uvicorn app.main:app --reload
 ```
+
+The FastAPI app will be available at http://localhost:8000 with automatic API documentation at http://localhost:8000/docs.

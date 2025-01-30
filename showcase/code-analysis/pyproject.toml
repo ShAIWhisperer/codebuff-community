@@ -5,6 +5,8 @@ description = "A Python CLI application for analyzing GitHub repository complexi
 requires-python = ">=3.8"
 dependencies = [
     "gitpython>=3.1.42",
+    "fastapi>=0.109.2",
+    "uvicorn>=0.27.1",
 ]
 
 [project.optional-dependencies]
