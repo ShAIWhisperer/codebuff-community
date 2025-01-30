@@ -1,6 +1,7 @@
 # Simple Minecraft Clone
 
 A simple 3D Minecraft-style game built with Three.js.
+![minecraft gif](https://github.com/user-attachments/assets/e1a5e6f5-a38a-42c2-955c-fa6de86750ec)
 
 ## Get this project
 
