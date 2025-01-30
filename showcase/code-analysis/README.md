@@ -1,11 +1,11 @@
 # GitHub Repository Analyzer
 
-A Chrome extension that analyzes GitHub repositories for development patterns and metrics.
+A Chrome extension that analyzes GitHub repositories for development patterns and metrics!
 
 <p align="center">
   <img src="images/img1.png" width="45%" />
   <img src="images/img2.png" width="45%" />
-</p>embed images/img1.png, and images/img2.png side by side:
+</p>
 
 
 ## Features
