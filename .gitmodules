@@ -10,3 +10,6 @@
 [submodule "showcase/maze-gen"]
 	path = showcase/maze-gen
 	url = https://github.com/narthur/maze-gen
+[submodule "showcase/codebuff-tricks"]
+	path = showcase/codebuff-tricks
+	url = https://github.com/narthur/codebuff-tricks

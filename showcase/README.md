@@ -7,6 +7,7 @@ Community showcase of projects built by Codebuff
 - [Game of Life](https://github.com/narthur/game-of-life) - Conway's Game of Life implementation with TypeScript
 - [Bayes](https://github.com/narthur/bayes) - A web application for applying Bayesian reasoning to everyday life
 - [Maze Generator](https://github.com/narthur/maze-gen) - A maze generation visualization built with TypeScript
+- [Codebuff Tricks](https://github.com/narthur/codebuff-tricks) - A community-built wizard to help you set up new projects with Codebuff
 
 ## Cloning
 
