@@ -1,3 +1,6 @@
 [submodule "showcase/later"]
 	path = showcase/later
 	url = https://github.com/narthur/later
+[submodule "showcase/game-of-life"]
+	path = showcase/game-of-life
+	url = https://github.com/narthur/game-of-life
