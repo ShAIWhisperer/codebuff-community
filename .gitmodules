@@ -4,3 +4,6 @@
 [submodule "showcase/game-of-life"]
 	path = showcase/game-of-life
 	url = https://github.com/narthur/game-of-life
+[submodule "showcase/bayes"]
+	path = showcase/bayes
+	url = https://github.com/narthur/bayes
