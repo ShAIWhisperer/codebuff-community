@@ -7,3 +7,6 @@
 [submodule "showcase/bayes"]
 	path = showcase/bayes
 	url = https://github.com/narthur/bayes
+[submodule "showcase/maze-gen"]
+	path = showcase/maze-gen
+	url = https://github.com/narthur/maze-gen
