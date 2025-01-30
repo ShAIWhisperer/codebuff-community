@@ -1,4 +1,5 @@
 # showcase
+
 Community showcase of projects built by Codebuff
 
 ## Projects
@@ -9,6 +10,7 @@ Community showcase of projects built by Codebuff
 - [Maze Generator](https://github.com/narthur/maze-gen) - A maze generation visualization built with TypeScript
 - [Codebuff Tricks](https://github.com/narthur/codebuff-tricks) - A community-built wizard to help you set up new projects with Codebuff
 - Minecraft simple - A basic version of Minecraft running in the browser!
+- Fishies - An aquarium with various fishies
 - Code Analysis - A project by [Lachlan Gray](https://github.com/LachlanGray) to show interesting stats on any Github repo
 
 ## Cloning
