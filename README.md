@@ -31,9 +31,6 @@ codebuff
 
 A collection of pre-configured project templates for various tech stacks. These templates provide a solid foundation for building new projects with best practices and common configurations already set up.
 
-Currently available templates:
-- `nextjs` - A Next.js template with TypeScript, ESLint, and Tailwind CSS
-
 ### `/showcase`
 
 A curated collection of projects built by the community using Codebuff. Get inspired by what others have created!
@@ -44,7 +41,7 @@ We'd love to see what you build with Codebuff! You can contribute in two ways:
 
 1. **Add a Starter Template**: Have a well-structured project setup that others might find useful? Share it as a starter template!
 
-2. **Share Your Project**: Built something cool with Codebuff? Add it to the showcase directory to inspire others!
+2. **Share Your Project**: Built something cool with Codebuff? Open a PR with a submodule linking to your public repo (if you don't know what that means, ask Codebuff to do it for you). Help us inspire others!
 
 To contribute:
 1. Fork this repository
