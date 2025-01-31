@@ -9,6 +9,7 @@ interface FishProps {
   isDying?: boolean;
   dyingStartTime?: number;
   isBeingEaten?: boolean;
+  isHiding?: boolean;
 }
 
 export const Fish: React.FC<FishProps> = ({
@@ -19,6 +20,7 @@ export const Fish: React.FC<FishProps> = ({
   isDying,
   dyingStartTime,
   isBeingEaten,
+  isHiding,
 }) => {
   const style: CSSProperties = {
     position: "absolute",
@@ -41,7 +43,7 @@ export const Fish: React.FC<FishProps> = ({
     transition: isDying ? "opacity 1s ease-out" : "none",
     fontSize: "24px",
     color,
-    opacity: isDying ? (Date.now() - dyingStartTime! > 500 ? 0 : 1) : 1,
+    opacity: isDying ? (Date.now() - dyingStartTime! > 500 ? 0 : 1) : isHiding ? 0.6 : 1,
   };
 
   return (

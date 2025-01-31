@@ -5,6 +5,9 @@
   background: linear-gradient(180deg, #0f4c81 0%, #1e90ff 50%, #0d3b66 100%);
   perspective: 2000px;
   transform-style: preserve-3d;
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(20px, -30px, 100px) scale(1.3) rotate(10deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 
 /* The fish-tank container holds all moving parts */
@@ -12,7 +15,39 @@
   width: 100%;
   height: 100%;
   position: relative;
-  animation: tank-depth 20s infinite ease-in-out;
+  animation: tank-depth 20s infinite ease-in-out, tank-current 10s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* Caustics overlay for dynamic lighting */
+.caustics-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.05),
+    transparent 60%
+  );
+  opacity: 0.7;
+  animation: caustics 8s ease-in-out infinite alternate;
+}
+
+/* Ambient light overlay */
+.ambient-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.05), transparent);
+  animation: ambient-light-move 15s ease-in-out infinite;
 }
 
 /* Subtle light-ray overlay for extra depth */
@@ -33,44 +68,149 @@
 }
 
 @keyframes tank-depth {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate3d(1, 1, 0, 0deg);
   }
   50% {
-    transform: translate3d(50px, 30px, -200px);
+    transform: translate3d(50px, 30px, -200px) rotate3d(1, 1, 0, 3deg);
   }
+}
+
+@keyframes tank-current {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(10px, -5px, 0); }
 }
 
 @keyframes jellyfish-float {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
   50% {
-    transform: translate(10px, -20px) rotate(5deg);
+    transform: translate3d(10px, -20px, 100px) rotate(5deg) scale(1.1);
   }
   100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes jellyfish-playful {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(10px, -20px, 100px) rotate(5deg) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
 }
 
 @keyframes bubble-rise {
   0% {
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
   100% {
-    transform: translateY(-100px) scale(0.5);
+    transform: translate3d(var(--drift-x, 20px), -100px, 50px) scale(0.5);
     opacity: 0;
   }
 }
 
 @keyframes sway {
-  0%,
-  100% {
-    transform: rotate(0deg);
+  0%, 100% {
+    transform: rotate(0deg) translate3d(0, 0, 20px);
   }
   50% {
-    transform: rotate(5deg);
+    transform: rotate(5deg) translate3d(0, 0, 40px);
+  }
+}
+
+@keyframes starfish-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes crab-walk {
+  0% { 
+    transform: translate3d(0, 0, 10px) rotate(-2deg); 
+  }
+  25% { 
+    transform: translate3d(5px, 0, 10px) rotate(0deg); 
+  }
+  75% { 
+    transform: translate3d(-5px, 0, 10px) rotate(0deg); 
+  }
+  100% { 
+    transform: translate3d(0, 0, 10px) rotate(-2deg); 
+  }
+}
+
+@keyframes caustics {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(10px, -10px, 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(-10px, 10px, 0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes ambient-light-move {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes food-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+@keyframes water-ripple {
+  0%   { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes plankton-drift {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translate(50px, -50px); opacity: 0; }
+}
+
+@keyframes turtle-swim {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%  { transform: translate3d(20px, -10px, 50px) rotate(5deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+@keyframes dolphin-swim {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(20px, -10px, 50px) rotate(5deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes sparkle-fade {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }
