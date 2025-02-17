@@ -13,3 +13,6 @@
 [submodule "showcase/codebuff-tricks"]
 	path = showcase/codebuff-tricks
 	url = https://github.com/narthur/codebuff-tricks
+[submodule "showcase/calendar-on-air"]
+	path = showcase/calendar-on-air
+	url = https://gist.github.com/dhunten/7f88654f3972bfe0fc6d70a1b5fa024a
