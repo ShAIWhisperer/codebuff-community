@@ -13,6 +13,13 @@ Community showcase of projects built by Codebuff
 - Fishies - An aquarium with various fishies
 - Code Analysis - A project by [Lachlan Gray](https://github.com/LachlanGray) to show interesting stats on any Github repo
 
+## Vending Machine
+A showcase project demonstrating a modern vending machine interface with:
+- Interactive UI with animations
+- Product selection and purchase flow
+- Testing implementation
+- [Link to repository](https://github.com/ShAIWhisperer/vending-machine)
+
 ## Cloning
 
 This repository contains submodules. To clone including all showcase projects, use:
