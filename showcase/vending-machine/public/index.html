@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vending Machine</h1>
+        <div class="display-panel">
+            <div id="balance">Balance: 0¢</div>
+            <div id="messages">INSERT COINS</div>
+        </div>
+        <div id="products" class="product-list"></div>
+        <div class="coin-buttons">
+            <button onclick="insertCoin(5)">5¢</button>
+            <button onclick="insertCoin(10)">10¢</button>
+            <button onclick="insertCoin(25)">25¢</button>
+            <button onclick="insertCoin(50)">50¢</button>
+            <button onclick="insertCoin(100)">$1</button>
+        </div>
+        <div class="actions">
+            <button onclick="refund()">Refund</button>
+            <button onclick="restockProducts()" class="restock">🔄 Restock</button>
+        </div>
+    </div>
+    <script src="ui.js"></script>
+</body>
+</html>
