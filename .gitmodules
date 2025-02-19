@@ -16,3 +16,6 @@
 [submodule "showcase/calendar-on-air"]
 	path = showcase/calendar-on-air
 	url = https://gist.github.com/dhunten/7f88654f3972bfe0fc6d70a1b5fa024a
+[submodule "showcase/vending-machine"]
+	path = showcase/vending-machine
+	url = https://github.com/ShAIWhisperer/vending-machine.git
