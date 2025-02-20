@@ -1,18 +1,21 @@
 [submodule "showcase/later"]
-	path = showcase/later
-	url = https://github.com/narthur/later
+        path = showcase/later
+        url = https://github.com/narthur/later
 [submodule "showcase/game-of-life"]
-	path = showcase/game-of-life
-	url = https://github.com/narthur/game-of-life
+        path = showcase/game-of-life
+        url = https://github.com/narthur/game-of-life
 [submodule "showcase/bayes"]
-	path = showcase/bayes
-	url = https://github.com/narthur/bayes
+        path = showcase/bayes
+        url = https://github.com/narthur/bayes
 [submodule "showcase/maze-gen"]
-	path = showcase/maze-gen
-	url = https://github.com/narthur/maze-gen
+        path = showcase/maze-gen
+        url = https://github.com/narthur/maze-gen
 [submodule "showcase/codebuff-tricks"]
-	path = showcase/codebuff-tricks
-	url = https://github.com/narthur/codebuff-tricks
+        path = showcase/codebuff-tricks
+        url = https://github.com/narthur/codebuff-tricks
 [submodule "showcase/calendar-on-air"]
-	path = showcase/calendar-on-air
-	url = https://gist.github.com/dhunten/7f88654f3972bfe0fc6d70a1b5fa024a
+        path = showcase/calendar-on-air
+        url = https://gist.github.com/dhunten/7f88654f3972bfe0fc6d70a1b5fa024a
+[submodule "showcase/tdd-web-automation"]
+        path = showcase/tdd-web-automation
+        url = https://github.com/ShAIWhisperer/tdd-web-automation.git
